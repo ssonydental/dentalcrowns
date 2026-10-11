@@ -916,7 +916,7 @@ setTimeout(function(){ document.documentElement.classList.add('reveal-all'); }, 
         ['a','A fixed tooth, not removable','fixed','Want it fixed in place'],['b','Longest-lasting option','long','Longest-lasting'],['c','Avoiding surgery','nosurg','Avoiding surgery'],['d','Keeping cost manageable','cost','Cost matters']]}
     ];
     var RESULTS = {
-      urgent:{title:"Let's see you soon.", body:'Pain or swelling means the tooth should be looked at first, before we decide on a crown or bridge. We stabilize the tooth at your first visit and go over the plan from there.'},
+      urgent:{title:"Let's see you soon.", body:'Pain or swelling means the tooth should be looked at first, before we decide on a crown or bridge. Our urgent care team relieves the pain and protects the tooth, then we plan from there.', urgent:true},
       crown:{title:'A crown is likely your fit.', body:'A crown covers and protects a tooth that is cracked, has lost a crown, or has had a root canal. It is usually completed in two visits, with a temporary in between.'},
       bridge:{title:'A bridge is likely your fit.', body:'A bridge replaces the missing tooth by anchoring to the teeth beside the gap, so it is fixed in place with no surgery. It is usually completed in two visits, with a temporary bridge in between.'},
       implant:{title:'An implant is worth discussing.', body:'An implant replaces the tooth on its own and leaves your healthy neighboring teeth untouched, which often makes it the longest-lasting choice. Our team includes an oral surgeon, so we can walk you through it in one place.', link:true},
@@ -1001,8 +1001,9 @@ setTimeout(function(){ document.documentElement.classList.add('reveal-all'); }, 
       try { sessionStorage.setItem('ssny_quiz_result', key); } catch(e){}
       swap('<div class="quiz-result"><p class="quiz-step">Your result</p><h3>' + r.title + '</h3><div class="quiz-chips">' + chips() + '</div><p>' + r.body + '</p>' +
         (r.link ? '<p><a class="quiz-impl" href="https://denture.ssonydental.com" rel="noopener">Learn about implant options</a></p>' : '') +
+        (r.urgent ? '<p><a class="quiz-impl" href="https://urgent.ssonydental.com" rel="noopener" data-track="urgent_link" data-loc="quiz">Go to Urgent Care Dental &rarr;</a></p>' : '') +
         '<p class="fin-line">0% financing available for prequalified patients.</p>' +
-        '<div class="cta-row"><a class="btn btn-primary" href="#book" data-track="book" data-loc="quiz">Book my exam</a><button type="button" class="quiz-retake" data-retake>Retake quiz</button></div>' +
+        '<div class="cta-row">' + (r.urgent ? '<a class="btn btn-primary" href="https://urgent.ssonydental.com" rel="noopener" data-track="urgent_book" data-loc="quiz">Book urgent care</a><a class="btn btn-secondary" href="tel:5165007400" data-track="call" data-loc="quiz">Call (516) 500-7400</a>' : '<a class="btn btn-primary" href="#book" data-track="book" data-loc="quiz">Book my exam</a>') + '<button type="button" class="quiz-retake" data-retake>Retake quiz</button></div>' +
         '<p class="quiz-note">This is a starting point, not a diagnosis. Your dentist confirms the best option at your exam.</p></div>', 'pop', function(){
         busy = false;
         screen.querySelector('[data-retake]').addEventListener('click', function(){ answers = {}; history = []; render('back'); });
