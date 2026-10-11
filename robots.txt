@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dentalcrowns.ssonydental.com/sitemap.xml
