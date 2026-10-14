@@ -303,11 +303,10 @@ h2{font-size:1.9rem;margin-bottom:18px}
 .two-col p{font-weight:300;color:var(--ink-soft);max-width:48ch}
 
 /* ---------- how it works: dark timeline ---------- */
-.how-dark{background:var(--ink);color:#fff}
-.how-dark h2{color:#fff}
-.how-dark .lede{color:rgba(255,255,255,.8)}
-.how-dark .eyebrow{background:var(--lav);color:var(--ink)}
-.how-dark .eyebrow .tick{color:var(--ink)}
+.rcopy .pair{margin-top:12px;display:grid;gap:6px;font-size:.88rem;color:var(--ink-soft)}
+.rcopy .pair span{display:flex;gap:10px}
+.rcopy .pair b{flex:0 0 52px;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#7A5CC2;padding-top:3px}
+@media (min-width:900px){.rstep:nth-of-type(odd) .rcopy .pair{margin-left:auto;max-width:52ch}.rstep:nth-of-type(odd) .rcopy .pair span{flex-direction:row-reverse;text-align:right}}
 
 
 
@@ -327,31 +326,39 @@ h2{font-size:1.9rem;margin-bottom:18px}
 @media (min-width:700px){.callout{padding:48px 40px}.callout-inner{flex-direction:row;align-items:center;justify-content:space-between;gap:40px}.callout-h{font-size:1.6rem}}
 @media (min-width:1041px){.callout{padding:56px clamp(40px,7vw,120px)}}
 
-.tl{position:relative;margin-top:36px;padding-left:40px}
-.tl::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:rgba(200,184,232,.3)}
-.tl-fill{position:absolute;left:11px;top:8px;width:2px;height:0;background:var(--lav);transition:height 1.2s cubic-bezier(.2,.8,.2,1)}
-.reveal.in .tl-fill,html.reveal-all .tl-fill{height:calc(100% - 16px)}
-.tnode{position:relative;padding:0 0 38px}
-.tnode:last-child{padding-bottom:0}
-.tnode::before{content:"";position:absolute;left:-40px;top:6px;width:24px;height:24px;border-radius:50%;background:var(--ink);border:2px solid var(--lav);box-sizing:border-box;transition:background .4s}
-.tnode::after{content:"";position:absolute;left:-33px;top:13px;width:10px;height:10px;border-radius:50%;background:var(--lav);opacity:0;transform:scale(.4);transition:opacity .4s,transform .4s}
-.reveal.in .tnode::after,html.reveal-all .tnode::after{opacity:1;transform:none}
-.reveal.in .tnode:nth-child(2)::after{transition-delay:.15s}.reveal.in .tnode:nth-child(3)::after{transition-delay:.4s}.reveal.in .tnode:nth-child(4)::after{transition-delay:.65s}.reveal.in .tnode:nth-child(5)::after{transition-delay:.9s}
-.tnode h3{color:#fff;font-size:1.35rem;margin-bottom:8px}
-.tnode p{font-weight:300;color:rgba(255,255,255,.8);max-width:46ch;text-wrap:pretty}
-.tnode .pair{margin-top:12px;display:grid;gap:6px;font-size:.88rem;color:rgba(255,255,255,.8)}
-.tnode .pair span{display:flex;gap:10px}
-.tnode .pair b{flex:0 0 52px;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--lav);padding-top:3px}
-@media (min-width:1041px){
-  .tl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:36px;padding-left:0;padding-top:52px;margin-top:48px}
-  .tl::before{left:12px;right:12px;top:11px;bottom:auto;height:2px;width:auto}
-  .tl-fill{left:12px;top:11px;height:2px;width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
-  .reveal.in .tl-fill,html.reveal-all .tl-fill{height:2px;width:calc(100% - 24px)}
-  .tnode{padding:0}
-  .tnode::before{left:0;top:-52px}
-  .tnode::after{left:7px;top:-45px}
+/* ---------- journey road ---------- */
+.road{position:relative;margin-top:40px;padding:10px 0 20px}
+.road-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.road-p{stroke-linecap:round;stroke-linejoin:round}
+.road-ghost{stroke:#EDE6F7;stroke-width:30}
+.road-fill{stroke:#2B1F42;stroke-width:30}
+.road-mask-p{stroke-width:34}
+.road-lane{stroke:#fff;stroke-width:2.5;stroke-dasharray:12 12}
+.road-car{transition:opacity .3s}
+.rstep{position:relative;padding:0 0 64px 76px;min-height:120px}
+.rstep:last-child{padding-bottom:10px}
+.rnode{position:absolute;left:0;top:0;width:58px;height:58px;border-radius:50%;background:#fff;border:3px solid #D9CDEC;color:#B9A9D6;display:flex;align-items:center;justify-content:center;z-index:2;transition:background .5s,border-color .5s,color .5s,transform .5s cubic-bezier(.3,1.6,.5,1)}
+.rnode svg{width:28px;height:28px}
+.rstep.on .rnode{background:#2B1F42;border-color:#C8B8E8;color:#C8B8E8;transform:scale(1.08)}
+.rcopy{opacity:.35;transform:translateY(10px);transition:opacity .7s,transform .7s}
+.rstep.on .rcopy{opacity:1;transform:none}
+.rnum{display:block;font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#7A5CC2;margin-bottom:6px}
+.rcopy h3{font-size:1.4rem;margin-bottom:10px}
+.rcopy p{font-weight:300;color:var(--ink-soft);max-width:52ch}
+@media (min-width:900px){
+  .road{padding:20px 0 40px}
+  .rstep{width:calc(50% - 90px);padding:0 0 110px;min-height:0}
+  .rstep:nth-of-type(even){margin-left:auto}
+  .rstep .rnode{left:auto;right:-90px;transform:translateX(50%)}
+  .rstep:nth-of-type(even) .rnode{left:-90px;right:auto;transform:translateX(-50%)}
+  .rstep.on .rnode{transform:translateX(50%) scale(1.08)}
+  .rstep:nth-of-type(even).on .rnode{transform:translateX(-50%) scale(1.08)}
+  .rstep:nth-of-type(odd) .rcopy{text-align:right}
+  .rstep:nth-of-type(odd) .rcopy p{margin-left:auto}
+  .rnode{width:70px;height:70px}.rnode svg{width:32px;height:32px}
+  .road-ghost,.road-fill{stroke-width:40}.road-mask-p{stroke-width:44}
 }
-@media (prefers-reduced-motion:reduce){.tl-fill,.tnode::after{transition:none}}
+@media (prefers-reduced-motion:reduce){.rcopy{opacity:1;transform:none}}
 
 /* ---------- promise cards ---------- */
 .promise-sec{background:#fff;padding-top:0;padding-bottom:0}
@@ -545,10 +552,10 @@ footer .fcol a:hover{color:var(--primary-deep)}
 
 /* ---------- sticky bar ---------- */
 .callbar{position:fixed;bottom:0;left:0;right:0;z-index:30;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);padding:9px 12px calc(9px + env(safe-area-inset-bottom));border-top:1px solid var(--rule)}
-.callbar-inner{display:flex;gap:9px}
+.callbar-inner{display:flex;flex-direction:column;gap:8px}
 .callbar a{flex:1;display:flex;align-items:center;justify-content:center;min-height:48px;text-decoration:none;font-weight:600;font-size:.98rem;padding:12px 8px;border-radius:999px;text-align:center;line-height:1.2}
-.callbar a.cb-book{background:var(--lav);color:var(--ink);flex:1.4}
-.callbar a.cb-call{background:transparent;color:var(--ink);border:1px solid var(--lav)}
+.callbar a.cb-book{background:var(--lav);color:var(--ink);order:1}
+.callbar a.cb-call{background:transparent;color:var(--ink);border:1px solid var(--lav);order:2}
 
 .btn:focus-visible,.call-pill:focus-visible,.book-pill:focus-visible,.faq-item summary:focus-visible,footer .fcol a:focus-visible,.callbar a:focus-visible,a:focus-visible{outline:2px solid var(--primary);outline-offset:3px;border-radius:6px}
 
@@ -614,7 +621,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div class="topbar-actions">
     <a class="call-pill" href="tel:5165007400" data-track="call" data-loc="topbar">(516) 500-7400</a>
-    <a class="book-pill" href="#book" data-track="book" data-loc="topbar">Book an exam</a>
+    <a class="book-pill" href="#book" data-track="book" data-loc="topbar">Book Online</a>
   </div>
 </header>
 
@@ -628,7 +635,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h1>Restore Your Tooth. <span class="hl light">Keep Your Smile.</span></h1>
         <p class="lede lg">Custom crowns and bridges designed to look, feel and function like your natural teeth. Your exam includes a review of your options and a clear price before any work begins.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#book" data-track="book" data-loc="hero">Book an exam</a>
+          <a class="btn btn-primary" href="#book" data-track="book" data-loc="hero">Book Online</a>
           <a class="btn btn-secondary" href="tel:5165007400" data-track="call" data-loc="hero">Call (516) 500-7400</a>
         </div>
         <a class="hero-quizlink" href="#quiz">Not sure what you need? Take the 60-second quiz &rarr;</a>
@@ -689,28 +696,50 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 
   <!-- 4 · HOW IT WORKS -->
-  <section class="how-dark" data-depth="how-it-works">
+  <section data-depth="how-it-works">
     <div class="inner reveal">
       <p class="eyebrow"><span class="tick">&#9679;</span> What Happens <span class="tick">&#9679;</span></p>
-      <h2>From First Visit <span class="hl light">to Finished Tooth.</span></h2>
+      <h2>From First Visit <span class="hl">to Finished Tooth.</span></h2>
       <p class="lede">A crown and a bridge follow the same path. A temporary covers you the whole way, so you are never left with an unprotected tooth or an open gap.</p>
-      <div class="tl">
-        <span class="tl-fill" aria-hidden="true"></span>
-        <div class="tnode">
-          <h3>Exam and plan</h3>
+    </div>
+    <div class="inner road" id="road">
+      <svg class="road-svg" aria-hidden="true">
+        <defs><mask id="road-mask" maskUnits="userSpaceOnUse"><path class="road-p road-mask-p" stroke="#fff" fill="none"></path></mask></defs>
+        <path class="road-p road-ghost" fill="none"></path>
+        <path class="road-p road-fill" fill="none"></path>
+        <path class="road-p road-lane" fill="none" mask="url(#road-mask)"></path>
+        <g class="road-car"><circle r="15" fill="#fff" stroke="#7A5CC2" stroke-width="3"></circle><circle r="5" fill="#7A5CC2"></circle></g>
+      </svg>
+      <div class="rstep" data-step="0">
+        <span class="rnode" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6.5h11a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H10l-4 3v-3H5a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2z"/><path d="M18 10h1a2 2 0 0 1 2 2v4.5a2 2 0 0 1-2 2h-.5V21l-3-2.5H13"/><circle cx="7.5" cy="11" r=".6" fill="currentColor"/><circle cx="10.5" cy="11" r=".6" fill="currentColor"/><circle cx="13.5" cy="11" r=".6" fill="currentColor"/></svg></span>
+        <div class="rcopy">
+          <span class="rnum">Step 01</span>
+          <h3>Exam and Plan</h3>
           <p>X-rays and a check of the tooth, the bite, and the gums. You see your options and exact price before anything starts.</p>
         </div>
-        <div class="tnode">
-          <h3>Prepare and protect</h3>
+      </div>
+      <div class="rstep" data-step="1">
+        <span class="rnode" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg></span>
+        <div class="rcopy">
+          <span class="rnum">Step 02</span>
+          <h3>Prepare and Protect</h3>
           <p>The tooth is numbed and shaped, and a temporary goes on before you leave.</p>
           <div class="pair"><span><b>Crown</b>One tooth is shaped and covered with a temporary crown.</span><span><b>Bridge</b>The teeth on each side of the gap are shaped and a temporary bridge fills the space.</span></div>
         </div>
-        <div class="tnode lab">
-          <h3>Custom-made</h3>
+      </div>
+      <div class="rstep" data-step="2">
+        <span class="rnode" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h7v3a2 2 0 1 0 4 0V4h5v7h-3a2 2 0 1 0 0 4h3v5h-7v-3a2 2 0 1 0-4 0v3H4v-7h3a2 2 0 1 0 0-4H4z"/></svg></span>
+        <div class="rcopy">
+          <span class="rnum">Step 03</span>
+          <h3>Custom-Made</h3>
           <p>Our dental lab partner builds your crown or bridge to match the shape, shade, and bite of your other teeth.</p>
         </div>
-        <div class="tnode">
-          <h3>Fit and finish</h3>
+      </div>
+      <div class="rstep" data-step="3">
+        <span class="rnode" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M7.5 13.5c1 2.2 2.6 3.2 4.5 3.2s3.5-1 4.5-3.2z"/><path d="M8.5 9.5h.01M15.5 9.5h.01" stroke-width="2.6"/></svg></span>
+        <div class="rcopy">
+          <span class="rnum">Step 04</span>
+          <h3>Fit and Finish</h3>
           <p>The temporary comes off. We check the fit at the gumline, adjust your bite, then cement and polish.</p>
         </div>
       </div>
@@ -822,7 +851,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2>Book Your <span class="hl">Crown &amp; Bridge Exam.</span></h2>
       <p class="lede">Pick a time below. We protect the tooth at your first visit and go over your plan and price before any work starts.</p>
       <div class="cta-row">
-        <a class="btn btn-quiet" href="tel:5165007400" data-track="call" data-loc="book">Prefer to talk first? (516) 500-7400</a>
+        <a class="btn btn-quiet" href="tel:5165007400" data-track="call" data-loc="book">Prefer to Talk First? Call Now</a>
       </div>
       <p class="book-note">After booking, call or text <a href="tel:5165007400" data-track="call" data-loc="book-note">(516) 500-7400</a> to confirm. Completing your forms ahead of time confirms your appointment and saves your slot.</p>
       <div class="book-card">
@@ -839,7 +868,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="visit-h">Visit us</p>
           <address class="visit-addr">444 Community Drive, Suite 309<br>Manhasset, NY 11030</address>
           <p class="quiet">Free parking on site. Exit 33 off the Long Island Expressway.</p>
-          <a class="btn btn-secondary" style="margin-top:22px;width:100%" href="https://www.google.com/maps/dir//smile+services+of+new+york/@40.7736343,-73.7432809,13z" target="_blank" rel="noopener" data-track="directions">Get directions</a>
+          <a class="btn btn-primary" style="margin-top:22px;width:100%" href="https://www.google.com/maps/dir//smile+services+of+new+york/@40.7736343,-73.7432809,13z" target="_blank" rel="noopener" data-track="directions">Get directions</a>
         </div>
       </div>
     </div>
@@ -877,10 +906,67 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="quiz-launch" id="quiz-launch" aria-hidden="true"><a href="#quiz" id="quiz-launch-link">Not sure what you need? Take the 60-second quiz <span class="arr" aria-hidden="true">&rarr;</span></a></div>
 
-<div class="callbar"><div class="callbar-inner"><a class="cb-book" href="#book" data-track="book" data-loc="sticky_bar">Book an exam</a><a class="cb-call" href="tel:5165007400" data-track="call" data-loc="sticky_bar">Call</a></div></div>
+<div class="callbar"><div class="callbar-inner"><a class="cb-book" href="#book" data-track="book" data-loc="sticky_bar">Book Online</a><a class="cb-call" href="tel:5165007400" data-track="call" data-loc="sticky_bar">Tap to Call</a></div></div>
 
 <script>
 setTimeout(function(){ document.documentElement.classList.add('reveal-all'); }, 2500);
+
+  /* ---------- journey road: draws with scroll ---------- */
+  (function(){
+    var road = document.getElementById('road'); if (!road) return;
+    var svg = road.querySelector('.road-svg'), paths = road.querySelectorAll('.road-p'), fill = road.querySelector('.road-fill');
+    var mask = road.querySelector('.road-mask-p'), car = road.querySelector('.road-car'), steps = road.querySelectorAll('.rstep');
+    var len = 0, stops = [];
+    function build(){
+      var r = road.getBoundingClientRect(), W = r.width, H = r.height;
+      if (!W || !H) return;
+      svg.setAttribute('viewBox','0 0 '+W+' '+H);
+      var pts = [];
+      steps.forEach(function(s){
+        var n = s.querySelector('.rnode').getBoundingClientRect();
+        pts.push([n.left - r.left + n.width/2, n.top - r.top + n.height/2]);
+      });
+      var desk = window.innerWidth >= 900;
+      if (!pts.length || pts.some(function(p){ return !isFinite(p[0]) || !isFinite(p[1]); })) return;
+      var sx = pts[0][0], d = 'M'+sx+' '+Math.max(0,pts[0][1]-120)+' L'+pts[0][0]+' '+pts[0][1];
+      for (var i=1;i<pts.length;i++){
+        var a=pts[i-1], b=pts[i], dy=(b[1]-a[1])*0.5;
+        var off = desk ? (i%2 ? 150 : -150) : (i%2 ? 30 : -14);
+        d += ' C'+(a[0]+off)+' '+(a[1]+dy)+' '+(b[0]+off)+' '+(b[1]-dy)+' '+b[0]+' '+b[1];
+      }
+      var last = pts[pts.length-1]; d += ' L'+last[0]+' '+(last[1]+60);
+      paths.forEach(function(p){ p.setAttribute('d', d); });
+      len = fill.getTotalLength();
+      if (!isFinite(len) || len <= 0){ len = 0; return; }
+      fill.style.strokeDasharray = mask.style.strokeDasharray = len+' '+len;
+      stops = pts.map(function(p){
+        var lo=0, hi=len; for (var k=0;k<22;k++){ var m=(lo+hi)/2; if (fill.getPointAtLength(m).y < p[1]) lo=m; else hi=m; } return lo;
+      });
+      update();
+    }
+    function update(){
+      if (!len) return;
+      var r = road.getBoundingClientRect(), vh = window.innerHeight;
+      if (!r.height) return;
+      var p = Math.min(1, Math.max(0, (vh*0.62 - r.top) / r.height));
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) p = 1;
+      var at = len * p; if (!isFinite(at)) at = 0;
+      fill.style.strokeDashoffset = mask.style.strokeDashoffset = (len - at);
+      var pt = fill.getPointAtLength(Math.max(0.1, at));
+      car.setAttribute('transform','translate('+pt.x+' '+pt.y+')');
+      car.style.opacity = (p <= 0 || p >= 1) ? 0 : 1;
+      steps.forEach(function(s,i){ s.classList.toggle('on', at >= stops[i] - 4); });
+    }
+    var raf = 0;
+    window.addEventListener('scroll', function(){ if (!raf) raf = requestAnimationFrame(function(){ raf = 0; update(); }); }, {passive:true});
+    window.addEventListener('resize', function(){ clearTimeout(build.t); build.t = setTimeout(build, 150); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(build).catch(function(){});
+    window.addEventListener('load', build);
+    build();
+  })();
+
+
 
 (function(){
 
