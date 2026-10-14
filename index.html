@@ -552,10 +552,10 @@ footer .fcol a:hover{color:var(--primary-deep)}
 
 /* ---------- sticky bar ---------- */
 .callbar{position:fixed;bottom:0;left:0;right:0;z-index:30;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);padding:9px 12px calc(9px + env(safe-area-inset-bottom));border-top:1px solid var(--rule)}
-.callbar-inner{display:flex;flex-direction:column;gap:8px}
+.callbar-inner{display:flex;gap:9px}
 .callbar a{flex:1;display:flex;align-items:center;justify-content:center;min-height:48px;text-decoration:none;font-weight:600;font-size:.98rem;padding:12px 8px;border-radius:999px;text-align:center;line-height:1.2}
-.callbar a.cb-book{background:var(--lav);color:var(--ink);order:1}
-.callbar a.cb-call{background:transparent;color:var(--ink);border:1px solid var(--lav);order:2}
+.callbar a.cb-book{background:var(--lav);color:var(--ink);order:2}
+.callbar a.cb-call{background:transparent;color:var(--ink);border:1px solid var(--lav);order:1}
 
 .btn:focus-visible,.call-pill:focus-visible,.book-pill:focus-visible,.faq-item summary:focus-visible,footer .fcol a:focus-visible,.callbar a:focus-visible,a:focus-visible{outline:2px solid var(--primary);outline-offset:3px;border-radius:6px}
 
