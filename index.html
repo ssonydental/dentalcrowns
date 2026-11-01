@@ -215,8 +215,8 @@ main{position:relative}
 /* ---------- sections ---------- */
 section{padding:56px 20px}
 .copy{width:100%;max-width:60ch}
-h1,h2,h3{font-family:'Playfair Display',serif;font-weight:400;line-height:1.15;color:var(--ink);letter-spacing:-.01em}
-h1{font-size:2.2rem;line-height:1.12;margin-bottom:20px;text-wrap:balance}
+h1,h2,h3,.hero-title{font-family:'Playfair Display',serif;font-weight:400;line-height:1.15;color:var(--ink);letter-spacing:-.01em}
+h1,.hero-title{font-size:2.2rem;line-height:1.12;margin-bottom:20px;text-wrap:balance}
 h2{font-size:1.9rem;margin-bottom:18px}
 .eyebrow{
   display:inline-flex;align-items:center;gap:9px;align-self:flex-start;width:auto;
@@ -273,7 +273,8 @@ h2{font-size:1.9rem;margin-bottom:18px}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:40px;align-items:center}
 .hero .copy{max-width:54ch}
 .hero-kicker{font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lav);margin-bottom:16px}
-.hero h1{color:#fff}
+.hero h1.hero-kicker{font-family:inherit;font-size:.74rem;font-weight:600;line-height:inherit;letter-spacing:.16em;color:var(--lav);margin-bottom:16px;text-wrap:wrap}
+.hero h1,.hero .hero-title{color:#fff}
 .hero .lede{color:rgba(255,255,255,.84)}
 .hero .btn-secondary{color:#fff;border-color:rgba(255,255,255,.55)}
 .hero .btn-secondary:hover{background:rgba(255,255,255,.1);border-color:#fff;color:#fff}
@@ -563,7 +564,7 @@ footer .fcol a:hover{color:var(--primary-deep)}
 @media (min-width:700px){
   section{padding:72px 40px}
   .hero{padding:130px 40px 72px}
-  h1{font-size:3.1rem}
+  h1,.hero-title{font-size:3.1rem}
   h2{font-size:2.5rem}
   .lede{font-size:1.15rem}
   .lede.lg{font-size:1.3rem}
@@ -593,7 +594,7 @@ footer .fcol a:hover{color:var(--primary-deep)}
   section{padding:88px clamp(40px,7vw,120px)}
   .hero{padding:150px clamp(40px,7vw,120px) 84px}
   .inner{max-width:1180px;margin:0 auto;width:100%}
-  h1{font-size:4rem}
+  h1,.hero-title{font-size:4rem}
   h2{font-size:2.9rem}
   .row{grid-template-columns:120px minmax(0,1fr);gap:0 40px;padding:40px 0;align-items:start}
   .row .num{grid-row:1 / span 2;grid-column:1;font-size:2rem;padding-top:4px}
@@ -631,8 +632,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="hero" data-depth="hero">
     <div class="inner hero-grid">
       <div class="copy">
-        <p class="hero-kicker">Serving Manhasset, Long Island &amp; Queens</p>
-        <h1>Restore Your Tooth. <span class="hl light">Keep Your Smile.</span></h1>
+        <h1 class="hero-kicker">Crowns &amp; Bridges in Manhasset</h1>
+        <p class="hero-title">Restore Your Tooth. <span class="hl light">Keep Your Smile.</span></p>
         <p class="lede lg">Custom crowns and bridges designed to look, feel and function like your natural teeth. Your exam includes a review of your options and a clear price before any work begins.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="#book" data-track="book" data-loc="hero">Book Online</a>
